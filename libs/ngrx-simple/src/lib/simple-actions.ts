@@ -7,37 +7,37 @@ export interface SimpleActionErrorProps {
 }
 
 export class SimpleActions {
-  protected static scope: string
+  protected scope = "";
 
-  protected static create(actionLabel: string, type: string): ActionCreator<string, () => TypedAction<string>> {
-    return createAction<string>(this.wrapLabel(actionLabel, type));
+  protected static create(scope: string, actionLabel: string, type: string): ActionCreator<string, () => TypedAction<string>> {
+    return createAction<string>(this.wrapLabel(scope, actionLabel, type));
   }
 
-  protected static createP<D extends object>(actionLabel: string, type: string, actionProps: ActionCreatorProps<D> & NotAllowedCheck<D>): ActionCreator<string, (props: (D & NotAllowedCheck<D>)) => (D & TypedAction<string>)> {
-    return createAction<string, D>(this.wrapLabel(actionLabel, type), actionProps);
+  protected static createP<D extends object>(scope: string, actionLabel: string, type: string, actionProps: ActionCreatorProps<D> & NotAllowedCheck<D>): ActionCreator<string, (props: (D & NotAllowedCheck<D>)) => (D & TypedAction<string>)> {
+    return createAction<string, D>(this.wrapLabel(scope, actionLabel, type), actionProps);
   }
 
-  protected static fail(label: string) {
-    return this.createP(label, 'failed', props<SimpleActionErrorProps>());
+  protected static fail(scope: string, label: string) {
+    return this.createP(scope, label, 'failed', props<SimpleActionErrorProps>());
   }
 
-  protected static successP<D extends object>(label: string, t: ActionCreatorProps<D> & NotAllowedCheck<D>) {
-    return this.createP(label, 'success', t);
+  protected static successP<D extends object>(scope: string, label: string, actionProps: ActionCreatorProps<D> & NotAllowedCheck<D>) {
+    return this.createP(scope, label, 'success', actionProps);
   }
 
-  protected static success<D extends object>(label: string) {
-    return this.create(label, 'success');
+  protected static success<D extends object>(scope: string, label: string) {
+    return this.create(scope, label, 'success');
   }
 
-  protected static doP<D extends object>(label: string, t: ActionCreatorProps<D> & NotAllowedCheck<D>) {
-    return this.createP(label, 'do', t);
+  protected static doP<D extends object>(scope: string, label: string, actionProps: ActionCreatorProps<D> & NotAllowedCheck<D>) {
+    return this.createP(scope, label, 'do', actionProps);
   }
 
-  protected static do<D extends object>(label: string) {
-    return this.create(label, 'do');
+  protected static do<D extends object>(scope: string, label: string) {
+    return this.create(label, 'do', scope);
   }
 
-  protected static wrapLabel(label: string, type: string) {
-    return `[${this.scope}/${type.toUpperCase()}] ${label}`
+  protected static wrapLabel(scope: string, label: string, type: string) {
+    return `[${scope}${(label) ? '/' + label : ''}]${(type) ? ' ' + type : ''}`
   }
 }

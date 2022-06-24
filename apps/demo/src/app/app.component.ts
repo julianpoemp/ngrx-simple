@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {Store} from "@ngrx/store";
+import {ButtonActions} from "./button.actions";
 
 @Component({
   selector: 'ngrx-simple-root',
@@ -6,8 +8,12 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'demo';
+  constructor(private store: Store) {
+  }
 
-  constructor() {
+  onButtonClick() {
+    this.store.dispatch(ButtonActions.click.do({
+      test: "ok"
+    }));
   }
 }
