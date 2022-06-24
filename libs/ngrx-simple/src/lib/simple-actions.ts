@@ -9,17 +9,12 @@ export interface SimpleActionErrorProps {
 export class SimpleActions {
   protected static scope: string
 
-  protected static create(actionLabel: string, type: 'do' | 'success' | 'failed'): ActionCreator<string, () => TypedAction<string>> {
-    return createAction<string>(
-      `${actionLabel}/${type.toUpperCase()}`
-    );
+  protected static create(actionLabel: string, type: string): ActionCreator<string, () => TypedAction<string>> {
+    return createAction<string>(this.wrapLabel(actionLabel, type));
   }
 
-  protected static createP<D extends object>(actionLabel: string, type: 'do' | 'success' | 'failed', t: ActionCreatorProps<D> & NotAllowedCheck<D>): ActionCreator<string, (props: (D & NotAllowedCheck<D>)) => (D & TypedAction<string>)> {
-    return createAction<string, D>(
-      `${actionLabel}/${type.toUpperCase()}`,
-      t
-    );
+  protected static createP<D extends object>(actionLabel: string, type: string, actionProps: ActionCreatorProps<D> & NotAllowedCheck<D>): ActionCreator<string, (props: (D & NotAllowedCheck<D>)) => (D & TypedAction<string>)> {
+    return createAction<string, D>(this.wrapLabel(actionLabel, type), actionProps);
   }
 
   protected static fail(label: string) {
@@ -40,5 +35,9 @@ export class SimpleActions {
 
   protected static do<D extends object>(label: string) {
     return this.create(label, 'do');
+  }
+
+  protected static wrapLabel(label: string, type: string) {
+    return `[${this.scope}/${type.toUpperCase()}] ${label}`
   }
 }
