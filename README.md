@@ -65,7 +65,7 @@ Then you can use the actions with the help of the auto-import feature of your ID
 import ButtonActions from "./button.actions";
 
 ...
-this.store.dispatch(fromButtonActions.click.do({
+this.store.dispatch(ButtonActions.click.do({
   test: "ok"
 }));
 ...
