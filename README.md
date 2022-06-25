@@ -74,7 +74,7 @@ This action is going to be of type `[button/click] do` automatically.
 
 ### Methods
 
-There are currently three types of methods: `do`, `success` and `fail`. For each method there are to methods: one method
+There are currently three types of methods: `do`, `success` and `fail`. For each method there are two methods: one method
 with properties (e.g. `doP`) and one without properties (`do`).
 
 ### Contributons
