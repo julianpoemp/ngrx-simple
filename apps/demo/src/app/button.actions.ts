@@ -1,7 +1,7 @@
 import {props} from '@ngrx/store';
-import {SimpleActions} from "@ngrx-simple/ngrx-simple";
+import {noprops, SimpleActions} from "@ngrx-simple/ngrx-simple";
 
-interface TestProps{
+interface TestProps {
   test: string;
 }
 
@@ -17,4 +17,17 @@ export class ButtonActions extends SimpleActions {
     success: this.successP(scope, label, props<TestProps>()),
     fail: this.fail(scope, label)
   }))("click", this.scope);
+
+  public static test = SimpleActions.generate(this.scope, {
+    label: "test",
+    doProps: props<{
+      hallo: string
+    }>(),
+    successProps: props<{
+      hallo: string
+    }>(),
+    failProps: props<{
+      hallo: string
+    }>()
+  });
 }

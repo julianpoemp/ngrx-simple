@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ButtonActions} from "./button.actions";
+import {RootState, State} from "./app.reducer";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'ngrx-simple-root',
@@ -8,12 +10,29 @@ import {ButtonActions} from "./button.actions";
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private store: Store) {
+  $buttonClicks?: Observable<string>;
+
+  constructor(private store: Store<RootState>) {
+    this.$buttonClicks = this.store.select((state: { app: State }) => {
+      return state.app.test;
+    });
   }
 
   onButtonClick() {
     this.store.dispatch(ButtonActions.click.do({
       test: "ok"
     }));
+    this.store.dispatch(ButtonActions.test.do({
+      hallo: "ok"
+    }));
+
+    this.store.dispatch(ButtonActions.test.success({
+      hallo: ""
+    }));
+
+    this.store.dispatch(ButtonActions.test.fail({
+      hallo: ""
+    }));
+
   }
 }

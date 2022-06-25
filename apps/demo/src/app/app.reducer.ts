@@ -4,6 +4,10 @@ import {ButtonActions} from "./button.actions";
 
 export const appFeatureKey = 'app';
 
+export interface RootState {
+  app: State;
+}
+
 export interface State {
   test: string;
 }
