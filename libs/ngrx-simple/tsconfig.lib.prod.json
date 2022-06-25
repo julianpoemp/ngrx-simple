@@ -3,5 +3,7 @@
   "compilerOptions": {
     "declarationMap": false
   },
-  "angularCompilerOptions": {}
+  "angularCompilerOptions": {},
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts", "**/*.test.ts"],
+  "include": ["**/*.ts"]
 }

@@ -1,12 +1,13 @@
 {
   "name": "ngrx-simple",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "start": "nx serve demo",
     "build": "nx build",
+    "build:lib:prod": "nx build ngrx-simple && cp README.md dist/libs/ngrx-simple/README.md",
     "test": "nx test"
   },
   "private": true,

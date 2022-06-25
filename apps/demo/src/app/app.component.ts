@@ -22,17 +22,5 @@ export class AppComponent {
     this.store.dispatch(ButtonActions.click.do({
       test: "ok"
     }));
-    this.store.dispatch(ButtonActions.test.do({
-      hallo: "ok"
-    }));
-
-    this.store.dispatch(ButtonActions.test.success({
-      hallo: ""
-    }));
-
-    this.store.dispatch(ButtonActions.test.fail({
-      hallo: ""
-    }));
-
   }
 }

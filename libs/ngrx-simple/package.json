@@ -1,6 +1,6 @@
 {
-  "name": "@ngrx-simple/ngrx-simple",
-  "version": "0.0.1",
+  "name": "ngrx-simple",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0"
