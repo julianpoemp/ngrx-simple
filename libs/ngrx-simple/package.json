@@ -1,6 +1,7 @@
 {
   "name": "ngrx-simple",
   "version": "1.0.0",
+  "keywords": ["ngrx", "angular", "typescript"],
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0"
