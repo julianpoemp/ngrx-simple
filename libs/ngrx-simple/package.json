@@ -1,12 +1,19 @@
 {
   "name": "ngrx-simple",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": ["ngrx", "angular", "typescript"],
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0"
+    "@ngrx/component-store": ">10.*",
+    "@ngrx/effects": ">10.*",
+    "@ngrx/entity": ">10.*",
+    "@ngrx/router-store": ">10.*",
+    "@ngrx/store": ">10.*"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/julianpoemp/ngx-codejar/issues"
+  },
+  "homepage": "https://github.com/julianpoemp/ngrx-simple"
 }

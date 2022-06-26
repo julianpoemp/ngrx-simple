@@ -1,6 +1,6 @@
 {
   "name": "ngrx-simple",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "keywords": ["ngrx", "angular", "typescript"],
   "scripts": {
@@ -68,5 +68,9 @@
     "ts-jest": "27.1.4",
     "ts-node": "~10.8.0",
     "typescript": "~4.7.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/julianpoemp/ngx-codejar/issues"
+  },
+  "homepage": "https://github.com/julianpoemp/ngrx-simple"
 }

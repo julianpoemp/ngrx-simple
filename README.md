@@ -77,6 +77,8 @@ This action is going to be of type `[button/click] do` automatically.
 There are currently three types of methods: `do`, `success` and `fail`. For each method there are two methods: one method
 with properties (e.g. `doP`) and one without properties (`do`).
 
-### Contributons
+### Contributing
 
 Feel free to contribute! :) If you find more ways to simplify ngrx, I'm really looking forward to better solutions. Just fork this repository and create a pull request.
+
+If we find a way to reduce more repetitive code, it would be awesome
